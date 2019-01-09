@@ -14,6 +14,11 @@ const serve = http.createServer(( req, res )=>{
     const contactPage = fs.readFileSync('contact.html');
     res.write(contactPage);
     res.end();
+  }else if( req.url === '/node.png'){
+    res.writeHead(200, { 'content-tyoe' : 'image/png'});
+    const image = fs.readFileSync('node.png');
+    res.write(image);
+    res.end();
   }else{
     res.writeHead(404,{ 'content-type': 'html'});
     const notFoundPage = fs.readFileSync('404.html');
